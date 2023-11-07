@@ -10,11 +10,15 @@ melbourne_data = pd.read_csv(melbourne_file_path)
 melbourne_data = pd.read_csv(melbourne_file_path)
 
 melbourne_data = melbourne_data.dropna(axis=0)
+# y = prediction target
 y = melbourne_data.Price
+# X = features to predict upon
 melbourne_features = ['Rooms', 'Bathroom', 'Landsize', 'Lattitude', 'Longtitude']
 X = melbourne_data[melbourne_features]
 test = X.describe()
 test_n = X.head()
+print(test)
+print(test_n)
 
 melbourne_model = DecisionTreeRegressor(random_state=1)
 melbourne_model.fit(X, y)
