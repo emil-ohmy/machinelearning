@@ -16,4 +16,5 @@ my_model = RandomForestClassifier(n_estimators=100,
 
 
 perm = PermutationImportance(my_model, random_state=1).fit(val_X, val_y)
-eli5.show_weights(perm, feature_names = val_X.columns.tolist())
+#eli5.show_weights(perm, feature_names = val_X.columns.tolist())
+print(eli5.format_as_text(eli5.explain_weights(my_model)))
